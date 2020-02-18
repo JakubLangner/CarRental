@@ -18,6 +18,7 @@ namespace CarRental.Models
         public string Description { get; set; }
         public string ImageUrl { get; set; }
         public string ThumbnaulUrl { get; set; }
+        public string CarStatus { get; set; }
     }
 
     public enum EngineType

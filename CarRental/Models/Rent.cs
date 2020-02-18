@@ -20,5 +20,7 @@ namespace CarRental.Models
         public bool IsInvoice { get; set; }
         public string Note { get; set; }
         public string RentStatus { get; set; }
+        public  virtual int UserId { get; set; }
+        public  virtual AppUser User { get; set; }
     }
 }

@@ -1,4 +1,5 @@
-﻿using CarRental.Models.Interfaces;
+﻿using CarRental.Models.Database;
+using CarRental.Models.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,39 +9,52 @@ namespace CarRental.Models.Repository
 {
     public class RentRepository : IRentReposiotry
     {
+        private readonly DatabaseContext _databasecontext;
+
+        public RentRepository(DatabaseContext databasecontext)
+        {
+            _databasecontext = databasecontext;
+        }
+
         public void AddRent(Rent rent)
         {
-            throw new NotImplementedException();
+            _databasecontext.Rents.Add(rent);
+            _databasecontext.SaveChanges();
         }
 
         public void ArchiveRent(Rent rent, Archives archives)
         {
-            throw new NotImplementedException();
+            _databasecontext.Archives.Add(archives);
+            _databasecontext.Rents.Remove(rent);
+            _databasecontext.SaveChanges();
         }
 
         public void DeleteRent(Rent rent)
         {
-            throw new NotImplementedException();
+            _databasecontext.Rents.Remove(rent);
+            _databasecontext.SaveChanges();
         }
 
         public List<Rent> GetAll()
         {
-            throw new NotImplementedException();
+            return _databasecontext.Rents.ToList();
         }
 
         public Rent GetRent(int id)
         {
-            throw new NotImplementedException();
+            return _databasecontext.Rents.FirstOrDefault(rent => rent.RentId == id);
+            
         }
 
         public Rent GetRentByStatus(string status)
         {
-            throw new NotImplementedException();
+            return _databasecontext.Rents.FirstOrDefault(rent => rent.RentStatus == status);
         }
 
         public void UpdateRent(Rent rent)
         {
-            throw new NotImplementedException();
+            _databasecontext.Rents.Update(rent);
+            _databasecontext.SaveChanges();
         }
     }
 }

@@ -4,14 +4,16 @@ using CarRental.Models.Database;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace CarRental.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    partial class DatabaseContextModelSnapshot : ModelSnapshot
+    [Migration("20200218134229_Fixed wrong columns")]
+    partial class Fixedwrongcolumns
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -159,9 +161,9 @@ namespace CarRental.Migrations
 
                     b.Property<string>("RentStatus");
 
-                    b.Property<int>("UserId");
-
                     b.Property<string>("UserId1");
+
+                    b.Property<string>("UserIdId");
 
                     b.HasKey("RentId");
 
@@ -170,6 +172,8 @@ namespace CarRental.Migrations
                     b.HasIndex("CarId");
 
                     b.HasIndex("UserId1");
+
+                    b.HasIndex("UserIdId");
 
                     b.ToTable("Rents");
                 });
@@ -307,6 +311,10 @@ namespace CarRental.Migrations
                     b.HasOne("CarRental.Models.AppUser", "User")
                         .WithMany()
                         .HasForeignKey("UserId1");
+
+                    b.HasOne("CarRental.Models.AppUser", "UserId")
+                        .WithMany()
+                        .HasForeignKey("UserIdId");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
