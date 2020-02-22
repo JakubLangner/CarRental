@@ -44,24 +44,31 @@
 
                 @if (SignInManager.IsSignedIn(User))
                 {
-                <ul class="nav navbar-nav">
-                    <li><a asp-area="" asp-controller="Home" asp-action="Contact"><span style="color: gold;">Konto</span></a></li>
-                </ul>
-                        <form asp-area="" asp-controller="Login" asp-action="Logout" id="logoutForm"
-                              method="post" class="navbar-right">
-                            <ul class="nav navbar-nav navbar-right">
-                                <li><a href="javascript:document.getElementById('logoutForm').submit()" style="color: gold;">Wyloguj</a></li>
-                            </ul>
-                        </form>
-                        }
-                        else
-                        {
+                    @if (User.IsInRole("Admin"))
+                    {
                         <ul class="nav navbar-nav">
-                            <li><a asp-area="" asp-controller="Login" asp-action="Login"><span style="color: gold;">Zaloguj się</span></a></li>
+                            <li><a asp-area="" asp-controller="Admin" asp-action="Index">Administracja</a></li>
                         </ul>
-                        }
+                    }
+                    <ul class="nav navbar-nav">
+                        <li><a asp-area="" asp-controller="Home" asp-action="Contact"><span style="color: gold;">Konto</span></a></li>
+                    </ul>
+                    <form asp-area="" asp-controller="Login" asp-action="Logout" id="logoutForm"
+                          method="post" class="navbar-right">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li><a href="javascript:document.getElementById('logoutForm').submit()" style="color: gold;">Wyloguj</a></li>
+                            <li><a>Zalgowany:@User.Identity.Name</a></li>
+                        </ul>
+                    </form>
+                }
+                else
+                {
+                    <ul class="nav navbar-nav">
+                        <li><a asp-area="" asp-controller="Login" asp-action="Login"><span style="color: gold;">Zaloguj się</span></a></li>
+                    </ul>
+                }
 
-                </div>
+            </div>
         </div>
     </nav>
 
