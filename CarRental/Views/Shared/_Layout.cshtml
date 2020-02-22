@@ -1,9 +1,12 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Identity
+<!DOCTYPE html>
+@inject SignInManager<AppUser> SignInManager
+@inject UserManager<AppUser> UserManager
 <html>
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - CarRental</title>
+    <title>@ViewData["Title"] - Strona Wypożyczalni</title>
 
     <environment include="Development">
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
@@ -17,7 +20,10 @@
     </environment>
 </head>
 <body>
-    <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div id="MojeLogo" class="text-center" style="background-image: url(/images/pattern1.png)">
+        <img src="~/images/logo.png" />
+    </div>
+    <nav class="navbar navbar-inverse ">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -26,15 +32,36 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">Wypożyczalnia samochodów</a>
+                <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand"><span style="color: gold;">Wypożyczalnia samochodów</span></a>
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li><a asp-area="" asp-controller="Home" asp-action="Index">Strona Główna</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="About">O firmie</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="Contact">Kontakt</a></li>
+                    <li><a asp-area="" asp-controller="Home" asp-action="Index"><span style="color: gold;">Strona Główna</span></a></li>
+                    <li><a asp-area="" asp-controller="Home" asp-action="About"><span style="color: gold;">O firmie</span></a></li>
+                    <li><a asp-area="" asp-controller="Home" asp-action="Contact"><span style="color: gold;">Kontakt</span></a></li>
+                    <li><a asp-area="" asp-controller="Home" asp-action="Contact"><span style="color: gold;">Zamów</span></a></li>
                 </ul>
-            </div>
+
+                @if (SignInManager.IsSignedIn(User))
+                {
+                <ul class="nav navbar-nav">
+                    <li><a asp-area="" asp-controller="Home" asp-action="Contact"><span style="color: gold;">Konto</span></a></li>
+                </ul>
+                        <form asp-area="" asp-controller="Login" asp-action="Logout" id="logoutForm"
+                              method="post" class="navbar-right">
+                            <ul class="nav navbar-nav navbar-right">
+                                <li><a href="javascript:document.getElementById('logoutForm').submit()" style="color: gold;">Wyloguj</a></li>
+                            </ul>
+                        </form>
+                        }
+                        else
+                        {
+                        <ul class="nav navbar-nav">
+                            <li><a asp-area="" asp-controller="Login" asp-action="Login"><span style="color: gold;">Zaloguj się</span></a></li>
+                        </ul>
+                        }
+
+                </div>
         </div>
     </nav>
 
@@ -43,7 +70,7 @@
     <div class="container body-content">
         @RenderBody()
         <hr />
-        <footer style="color: white">
+        <footer>
             <p>&copy; 2020 - Jakub Langner</p>
         </footer>
     </div>

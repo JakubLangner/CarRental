@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CarRental.Models.Repository
 {
-    public class AdditionalEquipmentRepository : IAdditionalEquipment
+    public class AdditionalEquipmentRepository : IAdditionalEquipmentRepository
     {
         private readonly DatabaseContext _databasecontext;
 

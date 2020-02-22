@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace CarRental.Models.Interfaces
 {
-    interface IAdditionalEquipment
+    interface IAdditionalEquipmentRepository
     {
         void AddEquipment(AdditionalEquipment additionalEquipment);
         void UpdateEquipment(AdditionalEquipment additionalEquipment);

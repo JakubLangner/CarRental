@@ -30,3 +30,5 @@ D:\Informatyka\Studia\Praca dyplomowa\app\CarRental\CarRental\obj\Debug\netcorea
 D:\Informatyka\Studia\Praca dyplomowa\app\CarRental\CarRental\obj\Debug\netcoreapp2.1\CarRental.pdb
 D:\Informatyka\Studia\Praca dyplomowa\app\CarRental\CarRental\obj\Debug\netcoreapp2.1\CarRental.csproj.CopyComplete
 D:\Informatyka\Studia\Praca dyplomowa\app\CarRental\CarRental\obj\Debug\netcoreapp2.1\CarRental.csprojAssemblyReference.cache
+D:\Informatyka\Studia\Praca dyplomowa\app\CarRental\CarRental\obj\Debug\netcoreapp2.1\Razor\Views\Login\Login.g.cshtml.cs
+D:\Informatyka\Studia\Praca dyplomowa\app\CarRental\CarRental\obj\Debug\netcoreapp2.1\Razor\Views\Login\Register.g.cshtml.cs
