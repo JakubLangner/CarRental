@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Mvc.Rendering;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -11,7 +12,7 @@ namespace CarRental.Models
         public string Plates { get; set; }
         public string Mark { get; set; }
         public string Model { get; set; }
-        public EngineType Engine { get; set; }
+        public string Engine { get; set; }
         public int YearOfProduction { get; set; }
         public string VehicleMileage { get; set; }
         public string EnginePower { get; set; }
@@ -19,12 +20,6 @@ namespace CarRental.Models
         public string ImageUrl { get; set; }
         public string ThumbnaulUrl { get; set; }
         public string CarStatus { get; set; }
-    }
 
-    public enum EngineType
-    {
-        Petrol = 0,
-        Diesel = 1
     }
-
 }
