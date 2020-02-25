@@ -75,7 +75,7 @@ using CarRental.Models;
                 ");
             EndContext();
             BeginContext(459, 70, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "73ad5e69e85443fcac1e91422e21d197", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "b94ea433c75d4035b520bca85578eb16", async() => {
                 BeginContext(515, 10, true);
                 WriteLiteral("Dodaj nowy");
                 EndContext();
@@ -207,7 +207,7 @@ WriteAttributeValue("", 1338, item.ThumbnaulUrl, 1338, 18, false);
             WriteLiteral(" height=\"150\" width=\"150\" /></td>\r\n                <td>\r\n                    ");
             EndContext();
             BeginContext(1434, 124, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6a95daa5fe9a4646ae3d68c0aaadfaaa", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c7a5582dbb1d4308a622e6e48587cac7", async() => {
                 BeginContext(1545, 9, true);
                 WriteLiteral("Szczegóły");
                 EndContext();
@@ -244,7 +244,7 @@ WriteAttributeValue("", 1338, item.ThumbnaulUrl, 1338, 18, false);
             WriteLiteral("\r\n                    ");
             EndContext();
             BeginContext(1580, 118, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6136514c989440c2a6b685646a3f8dfd", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "92650151f1a3457885236cf65db989ba", async() => {
                 BeginContext(1688, 6, true);
                 WriteLiteral("Edytuj");
                 EndContext();
@@ -281,7 +281,7 @@ WriteAttributeValue("", 1338, item.ThumbnaulUrl, 1338, 18, false);
             WriteLiteral("\r\n                    ");
             EndContext();
             BeginContext(1720, 118, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "59afc6f580c94d2d9875845bca790104", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f25ac27d1f3c456dad3166618e521a16", async() => {
                 BeginContext(1830, 4, true);
                 WriteLiteral("Usuń");
                 EndContext();

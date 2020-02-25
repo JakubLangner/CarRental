@@ -43,3 +43,7 @@ D:\Informatyka\Studia\Praca dyplomowa\app\CarRental\CarRental\obj\Debug\netcorea
 D:\Informatyka\Studia\Praca dyplomowa\app\CarRental\CarRental\obj\Debug\netcoreapp2.1\Razor\Views\Admin\CreateEquipment.g.cshtml.cs
 D:\Informatyka\Studia\Praca dyplomowa\app\CarRental\CarRental\obj\Debug\netcoreapp2.1\Razor\Views\Admin\EditEquipment.g.cshtml.cs
 D:\Informatyka\Studia\Praca dyplomowa\app\CarRental\CarRental\obj\Debug\netcoreapp2.1\Razor\Views\Admin\DeleteEquipment.g.cshtml.cs
+D:\Informatyka\Studia\Praca dyplomowa\app\CarRental\CarRental\obj\Debug\netcoreapp2.1\Razor\Views\Home\Cars.g.cshtml.cs
+D:\Informatyka\Studia\Praca dyplomowa\app\CarRental\CarRental\obj\Debug\netcoreapp2.1\Razor\Views\Admin\EditUser.g.cshtml.cs
+D:\Informatyka\Studia\Praca dyplomowa\app\CarRental\CarRental\obj\Debug\netcoreapp2.1\Razor\Views\Admin\CreateUser.g.cshtml.cs
+D:\Informatyka\Studia\Praca dyplomowa\app\CarRental\CarRental\obj\Debug\netcoreapp2.1\Razor\Views\Admin\DeleteUser.g.cshtml.cs

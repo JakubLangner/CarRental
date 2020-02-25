@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Threading.Tasks;
-using CarRental.Models;
+﻿using CarRental.Models;
 using CarRental.Models.Database;
 using CarRental.Models.Interfaces;
-using CarRental.Models.Repository;
 using CarRental.ViewModels.Admin;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
@@ -16,9 +11,15 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Threading.Tasks;
 
 namespace CarRental.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class AdminController : Controller
     {
         private readonly ICarRepository _carRepository;
@@ -27,7 +28,8 @@ namespace CarRental.Controllers
         private readonly SignInManager<AppUser> _signInManager;
         private readonly IConfiguration _configuration;
         private readonly IAdditionalEquipmentRepository _additionalEquipmentRepository;
-        public AdminController(ICarRepository carRepository, IHostingEnvironment env, UserManager<AppUser> userManager, SignInManager<AppUser> signInManager, IConfiguration configuration, IAdditionalEquipmentRepository additionalEquipmentRepository)
+        private readonly IServiceProvider _provider;
+        public AdminController(ICarRepository carRepository, IHostingEnvironment env, UserManager<AppUser> userManager, SignInManager<AppUser> signInManager, IConfiguration configuration, IAdditionalEquipmentRepository additionalEquipmentRepository, IServiceProvider provider)
         {
             _carRepository = carRepository;
             _env = env;
@@ -35,6 +37,7 @@ namespace CarRental.Controllers
             _signInManager = signInManager;
             _configuration = configuration;
             _additionalEquipmentRepository = additionalEquipmentRepository;
+            _provider = provider;
         }
 
         [HttpGet]
@@ -226,11 +229,9 @@ namespace CarRental.Controllers
             return context;
         }
 
+        [HttpGet]
         public IActionResult Users()
         {
-            if (!User.IsInRole("Admin"))
-                return RedirectToAction("Index", "Home");
-
             DatabaseContext context = this.initContext();
             var userRoles = new List<AdminUsersView>();
             var userStore = new UserStore<AppUser>(context);
@@ -242,6 +243,10 @@ namespace CarRental.Controllers
                 var model = new AdminUsersView
                 {
                     UserName = user.UserName,
+                    PhoneNumber = user.PhoneNumber,
+                    Email = user.Email,
+                    FirstName = user.FirstName,
+                    LastName = user.LastName,
                     Role = new List<string>()
                     //Role = _userManager.GetRolesAsync(user).ToString()
                 };
@@ -257,5 +262,151 @@ namespace CarRental.Controllers
 
             return View(userRoles);
         }
+
+        public IActionResult CreateUser()
+        {
+            var userEdit = new AdminUsersView();
+
+            userEdit.Roles = new List<SelectListItem>()
+            {
+                new SelectListItem {Text = "Administrator", Value = "Admin"},
+                new SelectListItem {Text = "Pracownik", Value = "Employee"}
+            };
+
+            return PartialView("CreateUser", userEdit);
+        }
+        [HttpPost]
+        public async Task<IActionResult> CreateUser(AdminUsersView model)
+        {
+            if (ModelState.IsValid)
+            {
+
+                AppUser newUser = _userManager.FindByNameAsync(model.UserName).Result;
+                if (newUser == null)
+                {
+                    newUser = new AppUser();
+                    newUser.UserName = model.UserName;
+                    newUser.PhoneNumber = model.PhoneNumber;
+                    newUser.Email = model.Email;
+                    newUser.FirstName = model.FirstName;
+                    newUser.LastName = model.LastName;
+
+                    var resultCreate = await _userManager.CreateAsync(newUser, model.Password);
+                    if (resultCreate.Succeeded)
+                    {
+                        var roleManager = _provider.GetRequiredService<RoleManager<IdentityRole>>();
+                        if (model.Role != null)
+                        {
+                            foreach (string role in model.Role)
+                            {
+
+                                var roleCheck = roleManager.RoleExistsAsync(role).Result;
+                                if (roleCheck)
+                                {
+                                    var isInRole = await _userManager.IsInRoleAsync(newUser, role);
+                                    if (!isInRole)
+                                    {
+                                        await _userManager.AddToRoleAsync(newUser, role);
+                                    }
+                                }
+                            }
+                        }
+                        return RedirectToAction("Users", "Admin");
+                    }
+                    else
+                    {
+                        foreach (var error in resultCreate.Errors)
+                        {
+                            ModelState.AddModelError("", error.Description);
+                        }
+
+                    }
+                }
+
+            }
+
+            model.Roles = new List<SelectListItem>()
+            {
+                new SelectListItem {Text = "Administrator", Value = "Admin"},
+                new SelectListItem {Text = "Pracownik", Value = "Employee"}
+            };
+
+            return View("Users", model);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> EditUser(string username)
+        {
+            var editUser = await _userManager.FindByNameAsync(username);
+            var User = new AdminUsersView();
+            User.PhoneNumber = editUser.PhoneNumber;
+            User.Email = editUser.Email;
+            User.FirstName = editUser.FirstName;
+            User.LastName = editUser.LastName;
+
+            User.Roles = new List<SelectListItem>()
+            {
+                new SelectListItem {Text = "Administrator", Value = "Admin",Selected = _userManager.IsInRoleAsync(editUser, "Admin").Result},
+                new SelectListItem {Text = "Użytkownik", Value = "User",Selected = _userManager.IsInRoleAsync(editUser, "User").Result},
+                new SelectListItem {Text = "Pracownik", Value = "Employee",Selected = _userManager.IsInRoleAsync(editUser, "Employee").Result}
+            };
+
+            return PartialView("EditUser", User);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> EditUser(AdminUsersView model)
+        {
+            var roleManager = _provider.GetRequiredService<RoleManager<IdentityRole>>();
+
+            AppUser editUser = _userManager.FindByNameAsync(model.UserName).Result;
+            editUser.Email = model.Email;
+            editUser.PhoneNumber = model.PhoneNumber;
+            editUser.FirstName = model.FirstName;
+            editUser.LastName = model.LastName;
+            if (model.Role != null)
+            {
+                IList<string> userRoles = _userManager.GetRolesAsync(editUser).Result;
+                foreach (string roleName in userRoles)
+                {
+                    if (!model.Role.Contains(roleName))
+                    {
+                        await _userManager.RemoveFromRoleAsync(editUser, roleName);
+                    }
+                }
+                foreach (string role in model.Role)
+                {
+
+                    var roleCheck = roleManager.RoleExistsAsync(role).Result;
+                    if (roleCheck)
+                    {
+                        var isInRole = await _userManager.IsInRoleAsync(editUser, role);
+                        if (!isInRole)
+                        {
+                            await _userManager.AddToRoleAsync(editUser, role);
+                        }
+                    }
+                }
+            }
+            var result = _userManager.UpdateAsync(editUser).Result;
+
+            return RedirectToAction("Users", "Admin");
+        }
+
+
+        public async Task<IActionResult> DeleteUser(AdminUsersView model)
+        {
+            AppUser editUser = _userManager.FindByNameAsync(model.UserName).Result;
+            editUser.Email = model.Email;
+            editUser.PhoneNumber = model.PhoneNumber;
+            editUser.FirstName = model.FirstName;
+            editUser.LastName = model.LastName;
+
+            await _userManager.DeleteAsync(editUser);
+
+            return RedirectToAction("Users", "Admin");
+        }
+
     }
 }

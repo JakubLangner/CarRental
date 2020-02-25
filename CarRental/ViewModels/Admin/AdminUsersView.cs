@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc.Rendering;
+﻿using CarRental.Models;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -10,8 +11,8 @@ namespace CarRental.ViewModels.Admin
 {
     public class AdminUsersView
     {
-        [Key]
         [Required]
+        [Display(Name = "Nazwa użytkownika")]
         public string UserName { get; set; }
         [Required]
         [DataType(DataType.Password)]
@@ -23,6 +24,18 @@ namespace CarRental.ViewModels.Admin
         public IEnumerable<SelectListItem> Roles { get; set; }
         public string PhoneNumber { get; set; }
         public string Email { get; set; }
-        
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+
+        public AdminUsersView()
+        {
+
+        }
+
+        public AdminUsersView(AppUser row)
+        {
+            
+        }
+
     }
 }

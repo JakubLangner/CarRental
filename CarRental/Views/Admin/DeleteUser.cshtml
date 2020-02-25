@@ -1,0 +1,20 @@
+﻿
+@model AppUser
+
+<div>
+    <div class="thumbnail">
+        <div class="row">
+            <div class="col-md-6">
+                <h3>@Model.UserName</h3>
+                <h2>Na pewno chcesz usunąć?</h2>
+                
+                    <form asp-action="DeleteUser">
+                        <input type="hidden" asp-for="UserName" />
+                        <input type="submit" value="Usuń" class="btn btn-success" />
+                        <a asp-action="Users" class="btn btn-success">Powrót</a>
+                    </form>
+               
+            </div>
+        </div>
+    </div>
+</div>

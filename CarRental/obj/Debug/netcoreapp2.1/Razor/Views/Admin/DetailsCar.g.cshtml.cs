@@ -163,7 +163,7 @@ WriteAttributeValue("", 157, Model.ImageUrl, 157, 15, false);
             WriteLiteral("</p>\r\n            </div>\r\n            <div class=\"col-md-3\" style=\"padding-right:50px\">\r\n                <h3 class=\"pull-right\">\r\n                    ");
             EndContext();
             BeginContext(765, 86, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "19a519c19daa411894943540c83f2068", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "3a66270f8425499d9ca296dabd2c990c", async() => {
                 BeginContext(841, 6, true);
                 WriteLiteral("Edycja");
                 EndContext();
@@ -199,7 +199,7 @@ WriteAttributeValue("", 157, Model.ImageUrl, 157, 15, false);
             WriteLiteral("\r\n                    ");
             EndContext();
             BeginContext(873, 55, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "0a7c4c74af844a5383f2615801c2f3ca", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "3af7a4ff68594c4da1eb42fec0ef33eb", async() => {
                 BeginContext(918, 6, true);
                 WriteLiteral("Powrót");
                 EndContext();

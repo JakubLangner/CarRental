@@ -5,11 +5,19 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using CarRental.Models;
+using CarRental.Models.Interfaces;
+using CarRental.ViewModels;
 
 namespace CarRental.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly ICarRepository _carRepository;
+        public HomeController(ICarRepository carRepository)
+        {
+            _carRepository = carRepository;
+        }
+
         public IActionResult Index()
         {
             return View();
@@ -38,6 +46,19 @@ namespace CarRental.Controllers
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
+        [HttpGet]
+        public IActionResult Cars()
+        {
+            var _cars = _carRepository.GetAll().OrderBy(s => s.CarId);
+
+            var homeVM = new HomeVM()
+            {
+                Title = "Przegląd Samochodów",
+                cars = _cars.ToList()
+            };
+
+            return View(homeVM);
         }
     }
 }

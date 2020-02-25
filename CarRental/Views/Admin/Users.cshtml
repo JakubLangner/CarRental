@@ -5,7 +5,6 @@
 
 @{
     ViewData["Title"] = "User";
-    var modalID = "User";
 }
 
 
@@ -22,9 +21,10 @@
             <th>Użytkownik</th>
             <th>Email</th>
             <th>Telefon</th>
-
+            <th>Imię</th>
+            <th>Nazwisko</th>
             <th>
-                <a asp-action="CreateUser" class="btn btn-danger btn-sm">Dodaj użytkownika</a>
+                <a asp-action="CreateUser" class="btn btn-primary">Dodaj Użytkownika</a>
             </th>
         </tr>
     </thead>
@@ -37,10 +37,12 @@
                 <td>@user.UserName</td>
                 <td>@user.Email</td>
                 <td>@user.PhoneNumber</td>
+                <td>@user.FirstName</td>
+                <td>@user.LastName</td>
                 <!--<td>@string.Join(",", user.Role.ToArray())</td>-->
                 <td>
-                    <a id="editLine" data-toggle="modal" asp-action="EditUser" asp-route-userName="@user.UserName" data-target="#@modalID" class="btn btn-primary">Edytuj</a>
-                    <a id="deleteLine" asp-action="DeleteUser" asp-route-userName="@user.UserName" class="btn btn-primary">Usuń</a>
+                    <a id="editLine" asp-action="EditUser" asp-route-userName="@user.UserName" class="btn btn-success btn-sm">Edytuj</a>
+                    <a id="deleteLine" asp-action="DeleteUser" asp-route-userName="@user.UserName" class="btn btn-danger btn-sm">Usuń</a>
                 </td>
             </tr>
         }
@@ -54,9 +56,10 @@
             <th>Użytkownik</th>
             <th>Email</th>
             <th>Telefon</th>
-
+            <th>Imię</th>
+            <th>Nazwisko</th>
             <th>
-                <a asp-action="CreateUser" class="btn btn-danger btn-sm">Dodaj pracownika</a>
+                <a asp-action="CreateUser" class="btn btn-primary">Dodaj Pracownika</a>
             </th>
         </tr>
     </thead>
@@ -65,16 +68,19 @@
     {
         if (user.Role.ToArray().Contains("Employee"))
         {
-            <tr>
-                <td>@user.UserName</td>
-                <td>@user.Email</td>
-                <td>@user.PhoneNumber</td>
-                <!--<td>@string.Join(",", user.Role.ToArray())</td>-->
-                <td>
-                    <a id="editLine" data-toggle="modal" asp-action="EditUser" asp-route-userName="@user.UserName" data-target="#@modalID" class="btn btn-primary">Edytuj</a>
-                    <a id="deleteLine" asp-action="DeleteUser" asp-route-userName="@user.UserName" class="btn btn-primary">Usuń</a>
-                </td>
-            </tr>
+    <tr>
+        <td>@user.UserName</td>
+        <td>@user.Email</td>
+        <td>@user.PhoneNumber</td>
+        <td>@user.FirstName</td>
+        <td>@user.LastName</td>
+        <!--<td>@string.Join(",", user.Role.ToArray())</td>-->
+        <td>
+            <a id="editLine" asp-action="EditUser" asp-route-userName="@user.UserName" class="btn btn-success btn-sm">Edytuj</a>
+            <a id="deleteLine" asp-action="DeleteUser" asp-route-userName="@user.UserName" class="btn btn-danger btn-sm">Usuń</a>
+            <a id="deleteLine" asp-action="DeleteUser" asp-route-userName="@user.UserName" class="btn btn-primary">Usuń</a>
+        </td>
+    </tr>
         }
     }
 </table>
@@ -87,9 +93,10 @@
             <th>Użytkownik</th>
             <th>Email</th>
             <th>Telefon</th>
-
+            <th>Imię</th>
+            <th>Nazwisko</th>
             <th>
-                <a asp-action="CreateUser" class="btn btn-danger btn-sm">Dodaj administratora</a>
+                <a asp-action="CreateUser" class="btn btn-primary">Dodaj administratora</a>
             </th>
         </tr>
     </thead>
@@ -98,16 +105,18 @@
     {
         if (user.Role.ToArray().Contains("Admin"))
         {
-            <tr>
-                <td>@user.UserName</td>
-                <td>@user.Email</td>
-                <td>@user.PhoneNumber</td>
-                <!--<td>@string.Join(",", user.Role.ToArray())</td>-->
-                <td>
-                    <a id="editLine" data-toggle="modal" asp-action="EditUser" asp-route-userName="@user.UserName" data-target="#@modalID" class="btn btn-primary">Edytuj</a>
-                    <a id="deleteLine" asp-action="DeleteUser" asp-route-userName="@user.UserName" class="btn btn-primary">Usuń</a>
-                </td>
-            </tr>
+    <tr>
+        <td>@user.UserName</td>
+        <td>@user.Email</td>
+        <td>@user.PhoneNumber</td>
+        <td>@user.FirstName</td>
+        <td>@user.LastName</td>
+        <!--<td>@string.Join(",", user.Role.ToArray())</td>-->
+        <td>
+            <a id="editLine" asp-action="EditUser" asp-route-userName="@user.UserName" class="btn btn-success btn-sm">Edytuj</a>
+            <a id="deleteLine" asp-action="DeleteUser" asp-route-userName="@user.UserName" class="btn btn-danger btn-sm">Usuń</a>
+        </td>
+    </tr>
         }
     }
 </table>

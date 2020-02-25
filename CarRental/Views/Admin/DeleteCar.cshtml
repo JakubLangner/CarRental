@@ -16,14 +16,14 @@
                 <h4>@Model.EnginePower</h4>
                 <p>@Model.Description</p>
                 <h2>Na pewno chcesz usunąć?</h2>
-                <h4 class="pull-right">
+                
                     <form asp-action="DeleteCar">
                         <input type="hidden" asp-for="CarId" />
                         <input type="hidden" asp-for="ImageUrl" />
                         <input type="submit" value="Usuń" class="btn btn-success" />
                         <a asp-action="Cars" class="btn btn-success">Powrót</a>
                     </form>
-                </h4>
+                
             </div>
         </div>
     </div>
