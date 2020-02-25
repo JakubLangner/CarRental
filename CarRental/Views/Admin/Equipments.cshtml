@@ -1,0 +1,28 @@
+﻿@model IEnumerable<AdditionalEquipment>
+
+<table class="table" style="background-color:azure">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Rodzaj</th>
+
+            <th>
+                <a asp-action="CreateEquipment" class="btn btn-danger btn-sm">Dodaj nowy</a>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.AdditionalEquipmentId)</td>
+                <td>@Html.DisplayFor(modelItem => item.Type)</td>
+                <td>
+                    <a asp-action="EditEquipment" asp-route-id="@item.AdditionalEquipmentId" class="btn btn-success btn-sm" style="margin-bottom:3px">Edytuj</a>
+                    <a asp-action="DeleteEquipment" asp-route-id="@item.AdditionalEquipmentId" class="btn btn-success btn-sm" style="margin-bottom:3px">Usuń</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+

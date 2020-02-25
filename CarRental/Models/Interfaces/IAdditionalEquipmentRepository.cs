@@ -5,8 +5,10 @@ using System.Threading.Tasks;
 
 namespace CarRental.Models.Interfaces
 {
-    interface IAdditionalEquipmentRepository
+    public interface IAdditionalEquipmentRepository
     {
+        List<AdditionalEquipment> GetAll();
+        AdditionalEquipment GetEquipment(int id);
         void AddEquipment(AdditionalEquipment additionalEquipment);
         void UpdateEquipment(AdditionalEquipment additionalEquipment);
         void DeleteEquipment(AdditionalEquipment additionalEquipment);

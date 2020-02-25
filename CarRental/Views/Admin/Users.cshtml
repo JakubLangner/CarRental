@@ -1,0 +1,121 @@
+﻿@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = "User";
+    var modalID = "User";
+}
+
+
+@model IEnumerable<CarRental.ViewModels.Admin.AdminUsersView>
+<div id="modal-placeholder"></div>
+
+<h2 style="text-align: center;">Wszyscy użytkownicy zarejestrowani w systemie</h2>
+
+<h2>Użytkownicy</h2>
+<table class="table" style="background-color:azure">
+
+    <thead>
+        <tr>
+            <th>Użytkownik</th>
+            <th>Email</th>
+            <th>Telefon</th>
+
+            <th>
+                <a asp-action="CreateUser" class="btn btn-danger btn-sm">Dodaj użytkownika</a>
+            </th>
+        </tr>
+    </thead>
+
+    @foreach (var user in Model.ToList())
+    {
+        if (user.Role.ToArray().Contains("User"))
+        {
+            <tr>
+                <td>@user.UserName</td>
+                <td>@user.Email</td>
+                <td>@user.PhoneNumber</td>
+                <!--<td>@string.Join(",", user.Role.ToArray())</td>-->
+                <td>
+                    <a id="editLine" data-toggle="modal" asp-action="EditUser" asp-route-userName="@user.UserName" data-target="#@modalID" class="btn btn-primary">Edytuj</a>
+                    <a id="deleteLine" asp-action="DeleteUser" asp-route-userName="@user.UserName" class="btn btn-primary">Usuń</a>
+                </td>
+            </tr>
+        }
+    }
+</table>
+<h2>Pracownicy</h2>
+<table class="table" style="background-color:azure">
+
+    <thead>
+        <tr>
+            <th>Użytkownik</th>
+            <th>Email</th>
+            <th>Telefon</th>
+
+            <th>
+                <a asp-action="CreateUser" class="btn btn-danger btn-sm">Dodaj pracownika</a>
+            </th>
+        </tr>
+    </thead>
+
+    @foreach (var user in Model.ToList())
+    {
+        if (user.Role.ToArray().Contains("Employee"))
+        {
+            <tr>
+                <td>@user.UserName</td>
+                <td>@user.Email</td>
+                <td>@user.PhoneNumber</td>
+                <!--<td>@string.Join(",", user.Role.ToArray())</td>-->
+                <td>
+                    <a id="editLine" data-toggle="modal" asp-action="EditUser" asp-route-userName="@user.UserName" data-target="#@modalID" class="btn btn-primary">Edytuj</a>
+                    <a id="deleteLine" asp-action="DeleteUser" asp-route-userName="@user.UserName" class="btn btn-primary">Usuń</a>
+                </td>
+            </tr>
+        }
+    }
+</table>
+
+<h2>Administratorzy</h2>
+<table class="table" style="background-color:azure">
+
+    <thead>
+        <tr>
+            <th>Użytkownik</th>
+            <th>Email</th>
+            <th>Telefon</th>
+
+            <th>
+                <a asp-action="CreateUser" class="btn btn-danger btn-sm">Dodaj administratora</a>
+            </th>
+        </tr>
+    </thead>
+
+    @foreach (var user in Model.ToList())
+    {
+        if (user.Role.ToArray().Contains("Admin"))
+        {
+            <tr>
+                <td>@user.UserName</td>
+                <td>@user.Email</td>
+                <td>@user.PhoneNumber</td>
+                <!--<td>@string.Join(",", user.Role.ToArray())</td>-->
+                <td>
+                    <a id="editLine" data-toggle="modal" asp-action="EditUser" asp-route-userName="@user.UserName" data-target="#@modalID" class="btn btn-primary">Edytuj</a>
+                    <a id="deleteLine" asp-action="DeleteUser" asp-route-userName="@user.UserName" class="btn btn-primary">Usuń</a>
+                </td>
+            </tr>
+        }
+    }
+</table>
+
+
+
+@section Scripts {
+
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+}

@@ -20,6 +20,7 @@ namespace CarRental.Models.Repository
         public void AddCar(Car car)
         {
             _databasecontext.Cars.Add(car);
+            car.CarStatus = "Wolny";
             _databasecontext.SaveChanges();
         }
 

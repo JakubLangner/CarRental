@@ -1,9 +1,8 @@
 ﻿@model Car
 
-<h2>Edytuj Samochod</h2>
+<h2>Dodaj Samochod</h2>
 <hr />
 <div class="row">
-
     <div class="col-md-4">
         <form method="post" enctype="multipart/form-data" asp-action="UploadFile">
             <div class="form-group">
@@ -18,9 +17,8 @@
         </form>
     </div>
 
-    <form asp-action="Edit">
+    <form asp-action="CreateCar">
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-        <input type="hidden" asp-for="CarId" />
         <div class="col-md-4">
             <div class="form-group">
                 <label asp-for="Mark" class="control-label">Marka</label>
@@ -33,36 +31,31 @@
                 <span asp-validation-for="Model" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Plates" class="control-label">Rejestracja</label>
+                <label asp-for="Plates" class="control-label">Numery Rejestracyjne</label>
                 <input asp-for="Plates" class="form-control" />
                 <span asp-validation-for="Plates" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="YearOfProduction" class="control-label">Rok Produkcji</label>
-                <input asp-for="YearOfProduction" class="form-control" />
-                <span asp-validation-for="YearOfProduction" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Engine" class="control-label">Silnik</label>
                 <input asp-for="Engine" class="form-control" />
                 <span asp-validation-for="Engine" class="text-danger"></span>
             </div>
+            <div class="form-group">
+                <label asp-for="YearOfProduction" class="control-label">Rok Pordukcji</label>
+                <input asp-for="YearOfProduction" class="form-control" />
+                <span asp-validation-for="YearOfProduction" class="text-danger"></span>
+            </div>
         </div>
         <div class="col-md-4">
-            <div class="form-group">
-                <label asp-for="EnginePower" class="control-label">Moc Silnika</label>
-                <input asp-for="EnginePower" class="form-control" />
-                <span asp-validation-for="EnginePower" class="text-danger"></span>
-            </div>
             <div class="form-group">
                 <label asp-for="VehicleMileage" class="control-label">Przebieg</label>
                 <input asp-for="VehicleMileage" class="form-control" />
                 <span asp-validation-for="VehicleMileage" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="CarStatus" class="control-label">Status Auta</label>
-                <input asp-for="CarStatus" class="form-control" />
-                <span asp-validation-for="CarStatus" class="text-danger"></span>
+                <label asp-for="EnginePower" class="control-label">Moc Silnika</label>
+                <input asp-for="EnginePower" class="form-control" />
+                <span asp-validation-for="EnginePower" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Description" class="control-label">Opis</label>
@@ -73,8 +66,8 @@
             <input type="hidden" asp-for="ThumbnaulUrl" value="@ViewBag.ImgPath" />
 
             <div class="form-group">
-                <input type="submit" value="Edytuj samochód" class="btn btn-success" style="margin-top:30px" />
-                <a asp-action="Index" class="btn btn-danger pull-right" style="margin-top:30px">Powrót</a>
+                <input type="submit" value="Dodaj samochód" class="btn btn-success" style="margin-top:30px" />
+                <a asp-action="Cars" class="btn btn-danger pull-right" style="margin-top:30px">Powrót</a>
             </div>
         </div>
     </form>

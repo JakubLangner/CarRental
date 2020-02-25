@@ -34,5 +34,14 @@ namespace CarRental.Models.Repository
             _databasecontext.AdditionalEquipments.Update(additionalEquipment);
             _databasecontext.SaveChanges();
         }
+        public List<AdditionalEquipment> GetAll()
+        {
+            return _databasecontext.AdditionalEquipments.ToList();
+        }
+
+        public AdditionalEquipment GetEquipment(int id)
+        {
+            return _databasecontext.AdditionalEquipments.FirstOrDefault(x => x.AdditionalEquipmentId == id);
+        }
     }
 }

@@ -33,8 +33,13 @@ D:\Informatyka\Studia\Praca dyplomowa\app\CarRental\CarRental\obj\Debug\netcorea
 D:\Informatyka\Studia\Praca dyplomowa\app\CarRental\CarRental\obj\Debug\netcoreapp2.1\Razor\Views\Login\Register.g.cshtml.cs
 D:\Informatyka\Studia\Praca dyplomowa\app\CarRental\CarRental\obj\Debug\netcoreapp2.1\Razor\Views\Admin\Dashboard.g.cshtml.cs
 D:\Informatyka\Studia\Praca dyplomowa\app\CarRental\CarRental\obj\Debug\netcoreapp2.1\Razor\Views\Admin\Cars.g.cshtml.cs
-D:\Informatyka\Studia\Praca dyplomowa\app\CarRental\CarRental\obj\Debug\netcoreapp2.1\Razor\Views\Admin\Create.g.cshtml.cs
-D:\Informatyka\Studia\Praca dyplomowa\app\CarRental\CarRental\obj\Debug\netcoreapp2.1\Razor\Views\Admin\Details.g.cshtml.cs
-D:\Informatyka\Studia\Praca dyplomowa\app\CarRental\CarRental\obj\Debug\netcoreapp2.1\Razor\Views\Admin\Edit.g.cshtml.cs
-D:\Informatyka\Studia\Praca dyplomowa\app\CarRental\CarRental\obj\Debug\netcoreapp2.1\Razor\Views\Admin\Delete.g.cshtml.cs
+D:\Informatyka\Studia\Praca dyplomowa\app\CarRental\CarRental\obj\Debug\netcoreapp2.1\Razor\Views\Admin\CreateCar.g.cshtml.cs
+D:\Informatyka\Studia\Praca dyplomowa\app\CarRental\CarRental\obj\Debug\netcoreapp2.1\Razor\Views\Admin\DeleteCar.g.cshtml.cs
+D:\Informatyka\Studia\Praca dyplomowa\app\CarRental\CarRental\obj\Debug\netcoreapp2.1\Razor\Views\Admin\DetailsCar.g.cshtml.cs
+D:\Informatyka\Studia\Praca dyplomowa\app\CarRental\CarRental\obj\Debug\netcoreapp2.1\Razor\Views\Admin\EditCar.g.cshtml.cs
+D:\Informatyka\Studia\Praca dyplomowa\app\CarRental\CarRental\obj\Debug\netcoreapp2.1\Razor\Views\Admin\Users.g.cshtml.cs
 D:\Informatyka\Studia\Praca dyplomowa\app\CarRental\CarRental\obj\Debug\netcoreapp2.1\CarRental.csprojAssemblyReference.cache
+D:\Informatyka\Studia\Praca dyplomowa\app\CarRental\CarRental\obj\Debug\netcoreapp2.1\Razor\Views\Admin\Equipments.g.cshtml.cs
+D:\Informatyka\Studia\Praca dyplomowa\app\CarRental\CarRental\obj\Debug\netcoreapp2.1\Razor\Views\Admin\CreateEquipment.g.cshtml.cs
+D:\Informatyka\Studia\Praca dyplomowa\app\CarRental\CarRental\obj\Debug\netcoreapp2.1\Razor\Views\Admin\EditEquipment.g.cshtml.cs
+D:\Informatyka\Studia\Praca dyplomowa\app\CarRental\CarRental\obj\Debug\netcoreapp2.1\Razor\Views\Admin\DeleteEquipment.g.cshtml.cs

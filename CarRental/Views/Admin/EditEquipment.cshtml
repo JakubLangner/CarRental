@@ -1,0 +1,23 @@
+﻿@model AdditionalEquipment
+
+<h2>Edytuj Sprzęt</h2>
+<hr />
+<div class="row">
+
+    <form asp-action="EditEquipment">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input type="hidden" asp-for="AdditionalEquipmentId" />
+        <div class="col-md-4">
+            <div class="form-group">
+                <label asp-for="Type" class="control-label">Nazwa</label>
+                <input asp-for="Type" class="form-control" />
+                <span asp-validation-for="Type" class="text-danger"></span>
+            </div>
+         
+            <div class="form-group">
+                <input type="submit" value="Edytuj samochód" class="btn btn-success" style="margin-top:30px" />
+                <a asp-action="Equipments" class="btn btn-danger pull-right" style="margin-top:30px">Powrót</a>
+            </div>
+        </div>
+    </form>
+</div>
