@@ -1,0 +1,71 @@
+﻿@model Rent
+
+<h2>Realizacja zlecenia nr: @Model.RentId</h2>
+<hr />
+<div class="row">
+
+
+    <form asp-action="Execute">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input type="hidden" asp-for="RentId" />
+        <div class="col-md-4">
+            <div class="form-group">
+                <label asp-for="RentStatus" class="control-label">Realizacja</label>
+                <input asp-for="RentStatus" class="form-control" />
+                <span asp-validation-for="RentStatus" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CarId" class="control-label">Numer samochodu</label>
+                <input asp-for="CarId" class="form-control" />
+                <span asp-validation-for="CarId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RentStart" class="control-label">Początek wypożyczenia</label>
+                <input asp-for="RentStart" class="form-control" />
+                <span asp-validation-for="RentStart" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RentEnd" class="control-label">Koniec wypożyczenia</label>
+                <input asp-for="RentEnd" class="form-control" />
+                <span asp-validation-for="RentEnd" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RentAddress" class="control-label">Adres</label>
+                <input asp-for="RentAddress" class="form-control" />
+                <span asp-validation-for="RentAddress" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="IsInvoice" /> Faktura
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="Note" class="control-label">Notatla</label>
+                <input asp-for="Note" class="form-control" />
+                <span asp-validation-for="Note" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description" class="control-label">Opis</label>
+                <input asp-for="Description" class="form-control" />
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="UserId" class="control-label">Numer Klienta</label>
+                <input asp-for="UserId" class="form-control" />
+                <span asp-validation-for="UserId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AdditionalEquipmentId" class="control-label">Numer Sprzętu</label>
+                <input asp-for="AdditionalEquipmentId" class="form-control" />
+                <span asp-validation-for="AdditionalEquipmentId" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Realizuj" class="btn btn-success" style="margin-top:30px" />
+                <a asp-action="Rents" class="btn btn-danger pull-right" style="margin-top:30px">Powrót</a>
+            </div>
+        </div>
+    </form>
+</div>

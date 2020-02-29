@@ -47,3 +47,10 @@ D:\Informatyka\Studia\Praca dyplomowa\app\CarRental\CarRental\obj\Debug\netcorea
 D:\Informatyka\Studia\Praca dyplomowa\app\CarRental\CarRental\obj\Debug\netcoreapp2.1\Razor\Views\Admin\EditUser.g.cshtml.cs
 D:\Informatyka\Studia\Praca dyplomowa\app\CarRental\CarRental\obj\Debug\netcoreapp2.1\Razor\Views\Admin\CreateUser.g.cshtml.cs
 D:\Informatyka\Studia\Praca dyplomowa\app\CarRental\CarRental\obj\Debug\netcoreapp2.1\Razor\Views\Admin\DeleteUser.g.cshtml.cs
+D:\Informatyka\Studia\Praca dyplomowa\app\CarRental\CarRental\obj\Debug\netcoreapp2.1\Razor\Views\Employee\Dashboard.g.cshtml.cs
+D:\Informatyka\Studia\Praca dyplomowa\app\CarRental\CarRental\obj\Debug\netcoreapp2.1\Razor\Views\Employee\FreeCars.g.cshtml.cs
+D:\Informatyka\Studia\Praca dyplomowa\app\CarRental\CarRental\obj\Debug\netcoreapp2.1\Razor\Views\Employee\Archives.g.cshtml.cs
+D:\Informatyka\Studia\Praca dyplomowa\app\CarRental\CarRental\obj\Debug\netcoreapp2.1\Razor\Views\Employee\ArchivesDetails.g.cshtml.cs
+D:\Informatyka\Studia\Praca dyplomowa\app\CarRental\CarRental\obj\Debug\netcoreapp2.1\Razor\Views\Employee\Rents.g.cshtml.cs
+D:\Informatyka\Studia\Praca dyplomowa\app\CarRental\CarRental\obj\Debug\netcoreapp2.1\Razor\Views\Employee\Execute.g.cshtml.cs
+D:\Informatyka\Studia\Praca dyplomowa\app\CarRental\CarRental\obj\Debug\netcoreapp2.1\Razor\Views\Home\Account.g.cshtml.cs

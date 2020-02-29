@@ -1,0 +1,27 @@
+﻿@model CarRental.ViewModels.Archives.ArchivesVM
+
+<div>
+    <div class="thumbnail">
+        <div class="row">
+            <div class="col-md-3">
+                <h3>Numer wypożyczenia: @Model.RentId</h3>
+                <h4>Numer samochodu: @Model.CarId</h4>
+                <h4>Adres: @Model.RentAddress</h4>
+                <h4>Numer sprzedtu dodatkowego: @Model.AdditionalEquipmentId</h4>
+                <h4>Cena: @Model.Price</h4>
+                <h4>Czy była faktura: @Model.IsInvoice</h4>
+                <h4>Notatka: @Model.Note</h4>
+                <h4>Status: @Model.RentStatus</h4>
+                <h4>Numer użytkownika: @Model.UserId</h4>
+                <h4>Początek wypożyczenia: @Model.RentStart</h4>
+                <h4>Koniec wypożyczenia: @Model.RentEnd</h4>
+                <p>Opis: @Model.Description</p>
+            </div>
+            <div class="col-md-3" style="padding-right:50px">
+                <h3 class="pull-right">
+                    <a asp-action="Archives" class="btn btn-success">Powrót</a>
+                </h3>
+            </div>
+        </div>
+    </div>
+</div>

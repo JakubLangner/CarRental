@@ -1,0 +1,26 @@
+﻿@model IEnumerable<Archives>
+
+<table class="table" style="background-color:azure">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Numer Wypożyczenia</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.ArchiveId)</td>
+                <td>@Html.DisplayFor(modelItem => item.RentId)</td>
+                <td>@Html.DisplayFor(modelItem => item.Status)</td>
+
+                <td>
+                    <a asp-action="ArchivesDetails" asp-route-id="@item.RentId" class="btn btn-success btn-sm" style="margin-bottom:3px">Szczegóły</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+

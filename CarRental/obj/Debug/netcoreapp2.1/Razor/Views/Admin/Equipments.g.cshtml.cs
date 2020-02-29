@@ -59,7 +59,7 @@ using CarRental.Models;
             WriteLiteral("\r\n<table class=\"table\" style=\"background-color:azure\">\r\n    <thead>\r\n        <tr>\r\n            <th>Id</th>\r\n            <th>Rodzaj</th>\r\n\r\n            <th>\r\n                ");
             EndContext();
             BeginContext(214, 76, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "06408d3bae77491681bbfa26f75e4504", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "102ffd71d98c4e82b7a65e0fb876be31", async() => {
                 BeginContext(276, 10, true);
                 WriteLiteral("Dodaj nowy");
                 EndContext();
@@ -111,7 +111,7 @@ using CarRental.Models;
             WriteLiteral("</td>\r\n                <td>\r\n                    ");
             EndContext();
             BeginContext(613, 140, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "a38b1bd6c23e443b96e747dbd81d3d78", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ea9cefb3914e4ed98f0c0802adc9bacc", async() => {
                 BeginContext(743, 6, true);
                 WriteLiteral("Edytuj");
                 EndContext();
@@ -148,7 +148,7 @@ using CarRental.Models;
             WriteLiteral("\r\n                    ");
             EndContext();
             BeginContext(775, 140, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "52ca8d755b814b8d9641a621166c57f6", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "fce2bda9ce134d5f9caf21786d2a2c0e", async() => {
                 BeginContext(907, 4, true);
                 WriteLiteral("Usuń");
                 EndContext();

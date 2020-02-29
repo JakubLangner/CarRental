@@ -1,0 +1,56 @@
+﻿@{
+    ViewData["Title"] = "Dashboard";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Tablica Pracownika</h2>
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <a asp-controller="Employee" asp-action="Rents" class="btn btn-sq-lg btn-primary">
+                <img src="~/images/rent.png" alt="ASP.NET" class="img-responsive" />
+                <h4 class="h4">Wypożyczenia</h4>
+            </a>
+            <a asp-controller="Employee" asp-action="FreeCars" class="btn btn-sq-lg btn-success">
+                <img src="~/images/car.png" alt="ASP.NET" class="img-responsive" />
+                <h4 class="h4">Samochody</h4>
+            </a>
+            <a asp-controller="Employee" asp-action="Archives" class="btn btn-sq-lg btn-success">
+                <img src="~/images/archives.png" alt="ASP.NET" class="img-responsive" />
+                <h4 class="h4">Archiwum</h4>
+            </a>
+
+        </div>
+    </div>
+</div>
+
+<style>
+    .img-responsive {
+        width: 180px !important;
+        height: 190px !important;
+    }
+
+    .btn-sq-lg {
+        width: 200px !important;
+        height: 200px !important;
+        background-color: gainsboro;
+        border-color: black;
+        font-size: 10px;
+    }
+
+    .h4 {
+        color: black;
+    }
+
+    .btn-sq-lg:hover {
+        border: 3px solid white;
+        border-color: black;
+        background-color: gray;
+        font-weight: 800;
+    }
+</style>
+@section Scripts {
+
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

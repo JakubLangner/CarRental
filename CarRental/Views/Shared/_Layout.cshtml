@@ -36,7 +36,6 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li><a asp-area="" asp-controller="Home" asp-action="Index"><span style="color: gold;">Strona Główna</span></a></li>
                     <li><a asp-area="" asp-controller="Home" asp-action="About"><span style="color: gold;">O firmie</span></a></li>
                     <li><a asp-area="" asp-controller="Home" asp-action="Contact"><span style="color: gold;">Kontakt</span></a></li>
                     <li><a asp-area="" asp-controller="Home" asp-action="Contact"><span style="color: gold;">Zamów</span></a></li>
@@ -46,19 +45,25 @@
                 {
                     @if (User.IsInRole("Admin"))
                     {
-                        <ul class="nav navbar-nav">
-                            <li><a asp-area="" asp-controller="Admin" asp-action="Dashboard"><spna style="color: gold;">Administracja</spna></a></li>
-                        </ul>
+                <ul class="nav navbar-nav">
+                    <li><a asp-area="" asp-controller="Admin" asp-action="Dashboard"><spna style="color: gold;">Administracja</spna></a></li>
+                    <li><a asp-area="" asp-controller="Home" asp-action="Account" asp-route-userName="@User.Identity.Name"><span style="color: gold;">Konto</span></a></li>
+                </ul>
                     }
                     @if (User.IsInRole("Employee"))
                     {
                         <ul class="nav navbar-nav">
-                            <li><a asp-area="" asp-controller="Admin" asp-action="Index"><span style="color: gold;">Wypożyczenia</span></a></li>
+                            <li><a asp-area="" asp-controller="Employee" asp-action="Dashboard"><span style="color: gold;">Pracownik</span></a></li>
+                            <li><a asp-area="" asp-controller="Home" asp-action="Account" asp-route-userName="@User.Identity.Name"><span style="color: gold;">Konto</span></a></li>
                         </ul>
                     }
-                    <ul class="nav navbar-nav">
-                        <li><a asp-area="" asp-controller="Home" asp-action="Contact"><span style="color: gold;">Konto</span></a></li>
-                    </ul>
+                    @if (User.IsInRole("User"))
+                    {
+                        <ul class="nav navbar-nav">
+                            <li><a asp-area="" asp-controller="Employee" asp-action=""><span style="color: gold;">Wypożyczenie</span></a></li>
+                            <li><a asp-area="" asp-controller="Home" asp-action="Account" asp-route-userName="@User.Identity.Name"><span style="color: gold;">Konto</span></a></li>
+                        </ul>
+                    }
                     <form asp-area="" asp-controller="Login" asp-action="Logout" id="logoutForm"
                           method="post" class="navbar-right">
                         <ul class="nav navbar-nav navbar-right">

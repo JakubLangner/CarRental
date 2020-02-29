@@ -7,15 +7,21 @@ using Microsoft.AspNetCore.Mvc;
 using CarRental.Models;
 using CarRental.Models.Interfaces;
 using CarRental.ViewModels;
+using Microsoft.AspNetCore.Identity;
+using CarRental.ViewModels.Home;
 
 namespace CarRental.Controllers
 {
     public class HomeController : Controller
     {
         private readonly ICarRepository _carRepository;
-        public HomeController(ICarRepository carRepository)
+        private readonly UserManager<AppUser> _userManager;
+        private readonly IServiceProvider _provider;
+        public HomeController(ICarRepository carRepository, UserManager<AppUser> userManager, IServiceProvider provider)
         {
             _carRepository = carRepository;
+            _userManager = userManager;
+            _provider = provider;
         }
 
         public IActionResult Index()
@@ -59,6 +65,36 @@ namespace CarRental.Controllers
             };
 
             return View(homeVM);
+        }
+        [HttpGet]
+        public async Task<IActionResult> Account(string username)
+        {
+            var OldUser = await _userManager.FindByNameAsync(username);
+            var User = new UserVM();
+            User.PhoneNumber = OldUser.PhoneNumber;
+            User.Email = OldUser.Email;
+            User.FirstName = OldUser.FirstName;
+            User.LastName = OldUser.LastName;
+
+            
+
+            return PartialView("Account", User);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Account(UserVM model)
+        {
+            
+
+            AppUser editUser = _userManager.FindByNameAsync(model.UserName).Result;
+            editUser.Email = model.Email;
+            editUser.PhoneNumber = model.PhoneNumber;
+            editUser.FirstName = model.FirstName;
+            editUser.LastName = model.LastName;
+                var result = _userManager.UpdateAsync(editUser).Result;
+                return RedirectToAction(nameof(Index));
+           
         }
     }
 }

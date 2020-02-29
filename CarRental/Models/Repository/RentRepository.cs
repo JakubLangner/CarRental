@@ -55,6 +55,10 @@ namespace CarRental.Models.Repository
         {
             _databasecontext.Rents.Update(rent);
             _databasecontext.SaveChanges();
+            
         }
+
+
+        
     }
 }

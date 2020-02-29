@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace CarRental.Models.Interfaces
 {
-    interface IArchivesRepository
+    public interface IArchivesRepository
     {
         void AddArchive(Archives archives);
         List<Archives> GetAll();
