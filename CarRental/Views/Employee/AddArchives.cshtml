@@ -1,0 +1,36 @@
+﻿@{
+    ViewData["Title"] = "Edytuj";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model CarRental.ViewModels.AddArchiveVM
+
+<form asp-action="AddArchives">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title">Archiwum</h4>
+    </div>
+    <div class="modal-body form-horizontal">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="form-group col-lg-10">
+                    <label asp-for="Status" class="control-label">Status</label>
+                    <input asp-for="Status" class="form-control" />
+                    <span asp-validation-for="Status" class="text-danger"></span>
+                </div>
+                <div class="form-group col-lg-10">
+                    <label asp-for="Rents" class="control-label">Numer wypożyczenia</label>
+                    <input asp-for="Rents" class="form-control" />
+                    <span asp-validation-for="Rents" class="text-danger"></span>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <a asp-action="Rents" class="btn btn-danger pull-right" style="margin-top:30px">Powrót</a>
+        <input type="submit" value="Dodaj użytkownika" class="btn btn-success" style="margin-top:30px" />
+    </div>
+</form>
+@{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+

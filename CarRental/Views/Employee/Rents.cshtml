@@ -19,23 +19,23 @@
     <tbody>
         @foreach (var item in Model)
         {
-        <tr>
-            <td>@Html.DisplayFor(modelItem => item.RentId)</td>
-            <td>@Html.DisplayFor(modelItem => item.CarId)</td>
-            <td>@Html.DisplayFor(modelItem => item.RentStart)</td>
-            <td>@Html.DisplayFor(modelItem => item.RentEnd)</td>
-            <td>@Html.DisplayFor(modelItem => item.RentAddress)</td>
-            <td>@Html.DisplayFor(modelItem => item.IsInvoice)</td>
-            <td>@Html.DisplayFor(modelItem => item.Note)</td>
-            <td>@Html.DisplayFor(modelItem => item.Description)</td>
-            <td>@Html.DisplayFor(modelItem => item.UserId)</td>
-            <td>@Html.DisplayFor(modelItem => item.AdditionalEquipmentId)</td>
-            <td>@Html.DisplayFor(modelItem => item.RentStatus)</td>
-            <td>
-                <a asp-action="Execute" asp-route-id="@item.RentId" class="btn btn-success btn-sm" style="margin-bottom:3px">Realizuj</a>
-                <a asp-action="AddToArchives" asp-route-id="@item.RentId" class="btn btn-primary btn-sm" style="margin-bottom:3px">Dodaj do archiwum</a>
-            </td>
-        </tr>
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.RentId)</td>
+                <td>@Html.DisplayFor(modelItem => item.CarId)</td>
+                <td>@Html.DisplayFor(modelItem => item.RentStart)</td>
+                <td>@Html.DisplayFor(modelItem => item.RentEnd)</td>
+                <td>@Html.DisplayFor(modelItem => item.RentAddress)</td>
+                <td>@Html.DisplayFor(modelItem => item.IsInvoice)</td>
+                <td>@Html.DisplayFor(modelItem => item.Note)</td>
+                <td>@Html.DisplayFor(modelItem => item.Description)</td>
+                <td>@Html.DisplayFor(modelItem => item.UserId)</td>
+                <td>@Html.DisplayFor(modelItem => item.AdditionalEquipmentId)</td>
+                <td>@Html.DisplayFor(modelItem => item.RentStatus)</td>
+                <td>
+                    <a asp-action="Execute" asp-route-id="@item.RentId" class="btn btn-success btn-sm" style="margin-bottom:3px">Realizuj</a>
+                    <a asp-action="AddArchives" class="btn btn-primary btn-sm">Dodaj do archiwum</a>
+                </td>
+            </tr>
         }
     </tbody>
 </table>

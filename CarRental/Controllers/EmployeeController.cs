@@ -3,11 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using CarRental.Models;
+using CarRental.Models.Database;
 using CarRental.Models.Interfaces;
 using CarRental.ViewModels;
 using CarRental.ViewModels.Archives;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 
 namespace CarRental.Controllers
 {
@@ -18,13 +22,15 @@ namespace CarRental.Controllers
         private readonly IArchivesRepository _archivesRepository;
         private readonly IAdditionalEquipmentRepository _additionalEquipmentRepository;
         private readonly UserManager<AppUser> _userManager;
-        public EmployeeController(ICarRepository carRepository, IRentReposiotry rentReposiotry, IArchivesRepository archivesRepository, IAdditionalEquipmentRepository additionalEquipmentRepository, UserManager<AppUser> userManager)
+        private readonly IConfiguration _configuration;
+        public EmployeeController(ICarRepository carRepository, IRentReposiotry rentReposiotry, IArchivesRepository archivesRepository, IAdditionalEquipmentRepository additionalEquipmentRepository, UserManager<AppUser> userManager, IConfiguration configuration)
         {
             _carRepository = carRepository;
             _rentReposiotry = rentReposiotry;
             _archivesRepository = archivesRepository;
             _additionalEquipmentRepository = additionalEquipmentRepository;
             _userManager = userManager;
+            _configuration = configuration;
         }
 
         [HttpGet]
@@ -37,6 +43,15 @@ namespace CarRental.Controllers
         public IActionResult Archives()
         {
             return View(_archivesRepository.GetAll());
+        }
+
+        public DatabaseContext initContext()
+        {
+            DbContextOptionsBuilder<DatabaseContext> options = new DbContextOptionsBuilder<DatabaseContext>();
+            options.UseSqlServer(_configuration.GetConnectionString("DefaultConnection"));
+            var context = new DatabaseContext(options.Options);
+
+            return context;
         }
 
         [HttpGet]
@@ -104,5 +119,24 @@ namespace CarRental.Controllers
             return View(rent);
         }
 
+        [HttpGet]
+        public IActionResult AddArchives()
+        {
+            return View();
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult AddArchives(AddArchiveVM model)
+        {
+            if (ModelState.IsValid)
+            {
+                Archives archives = new Archives();
+                archives.RentId = model.Rents;
+                archives.Status = model.Status;
+                _archivesRepository.AddArchive(archives);
+                return RedirectToAction(nameof(Rents));
+            }
+            return View(model);
+        }
     }
 }
