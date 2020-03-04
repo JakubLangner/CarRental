@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CarRental.ViewModels.Order;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -14,5 +15,6 @@ namespace CarRental.Models.Interfaces
         void ArchiveRent(Rent rent, Archives archives);
         Rent GetRent(int id);
         Rent GetRentByStatus(string status);
+        List<Rent> GetMyRents(string username);
     }
 }

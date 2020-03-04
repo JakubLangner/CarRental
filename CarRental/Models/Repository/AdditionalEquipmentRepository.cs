@@ -18,6 +18,7 @@ namespace CarRental.Models.Repository
 
         public void AddEquipment(AdditionalEquipment additionalEquipment)
         {
+            additionalEquipment.IsSelected = false;
             _databasecontext.AdditionalEquipments.Add(additionalEquipment);
             _databasecontext.SaveChanges();
 

@@ -1,0 +1,77 @@
+﻿
+@{
+    ViewData["Title"] = "Wypozycz";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model CarRental.ViewModels.Order.RentVM
+
+<form asp-action="Order">
+    <div class="modal-body form-horizontal">
+        <input type="hidden" asp-for="UserName" />
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="form-group col-lg-10">
+                    <label asp-for="RentAddress" class="control-label">Adres wypożyczenia</label>
+                    <input asp-for="RentAddress" class="form-control" />
+                    <span asp-validation-for="RentAddress" class="text-danger"></span>
+                </div>
+                <div class="form-group col-lg-10">
+                    <label asp-for="RentStart" class="control-label">Początek wypożyczenia</label>
+                    <input asp-for="RentStart" class="form-control" />
+                    <span asp-validation-for="RentStart" class="text-danger"></span>
+                </div>
+                <div class="form-group col-lg-10">
+                    <label asp-for="RentEnd" class="control-label">Koniec wypożyczenia</label>
+                    <input asp-for="RentEnd" class="form-control" />
+                    <span asp-validation-for="RentEnd" class="text-danger"></span>
+                </div>
+                <div class="form-group col-lg-10">
+                    <label asp-for="Note" class="control-label">Notatka</label>
+                    <input asp-for="Note" class="form-control" />
+                    <span asp-validation-for="Note" class="text-danger"></span>
+                </div>
+                <div class="form-group col-lg-10">
+                    <label asp-for="Description" class="control-label">Opis</label>
+                    <input asp-for="Description" class="form-control" />
+                    <span asp-validation-for="Description" class="text-danger"></span>
+                </div>
+                <div class="form-group col-lg-10">
+                    <label asp-for="Price" class="control-label">Cena: </label>
+                    <span asp-validation-for="Price" class="text-danger"></span>
+
+                    <div class="checkbox">
+                        <label>
+                            <input asp-for="IsInvoice" /> Faktura
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group col-lg-10">
+
+                    <label asp-for="CarId" class="control-label">Wybierz samochód</label><br />
+                    @using (Html.BeginForm())
+                    {
+                        @Html.ListBoxFor(x => x.SelectedCar, Model.Cars)
+
+                    }
+                    
+                </div>
+                <div class="form-group col-lg-10">
+                    <label asp-for="AdditionalEquipmentId" class="control-label">Wybierz sprzęt</label><br />
+                    @using (Html.BeginForm())
+                    {
+                        @Html.ListBoxFor(x => x.SelectedCar, Model.Equipments)
+
+                    }
+                </div>
+            </div>
+        </div>
+
+        <div class="modal-footer">
+            <a asp-action="Index" class="btn btn-danger pull-right" style="margin-top:30px">Powrót</a>
+            <input type="submit" value="Wypożycz" class="btn btn-success" style="margin-top:30px" />
+        </div>
+    </div>
+</form>
+@{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+

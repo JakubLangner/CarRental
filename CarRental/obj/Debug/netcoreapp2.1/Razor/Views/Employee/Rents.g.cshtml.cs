@@ -195,7 +195,7 @@ using CarRental.Models;
             WriteLiteral("</td>\r\n                <td>\r\n                    ");
             EndContext();
             BeginContext(1436, 121, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "44159d1428cc4b0abf547c69e344a26b", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "67d17c1c92524efdbc50f39eed6b71c1", async() => {
                 BeginContext(1545, 8, true);
                 WriteLiteral("Realizuj");
                 EndContext();
@@ -232,7 +232,7 @@ using CarRental.Models;
             WriteLiteral("\r\n                    ");
             EndContext();
             BeginContext(1579, 80, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "096c676c26eb4dcb903006a7c6dbc937", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "87da7449b48f463589fa7ca8b1907134", async() => {
                 BeginContext(1638, 17, true);
                 WriteLiteral("Dodaj do archiwum");
                 EndContext();

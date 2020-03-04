@@ -175,7 +175,7 @@ using CarRental.Models;
             WriteLiteral("</p>\r\n            </div>\r\n            <div class=\"col-md-3\" style=\"padding-right:50px\">\r\n                <h3 class=\"pull-right\">\r\n                    ");
             EndContext();
             BeginContext(986, 59, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "77d916b191b347b18b8dd6f1cc50170a", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "4ed776a2f5234dc5aee34892b8dc84b8", async() => {
                 BeginContext(1035, 6, true);
                 WriteLiteral("Powrót");
                 EndContext();

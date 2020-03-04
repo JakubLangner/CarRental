@@ -21,6 +21,7 @@ namespace CarRental.Models.Repository
         {
             _databasecontext.Cars.Add(car);
             car.CarStatus = "Wolny";
+            car.IsSelected = false;
             _databasecontext.SaveChanges();
         }
 

@@ -168,7 +168,7 @@ using CarRental.Models;
             WriteLiteral("</td>-->\r\n                <td>\r\n                    ");
             EndContext();
             BeginContext(1056, 116, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "09dde0f80f054d3f864915558ae6cd34", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "7a1e6314f6a147f0b85996c930e89b0e", async() => {
                 BeginContext(1162, 6, true);
                 WriteLiteral("Edytuj");
                 EndContext();
@@ -205,7 +205,7 @@ using CarRental.Models;
             WriteLiteral("\r\n                    ");
             EndContext();
             BeginContext(1194, 117, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "60675eef526e4912bbd64b1e7d2c175d", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2d3ac9c3f6594942a8f128481d621115", async() => {
                 BeginContext(1303, 4, true);
                 WriteLiteral("Usuń");
                 EndContext();
@@ -263,7 +263,7 @@ using CarRental.Models;
                 ");
             EndContext();
             BeginContext(1670, 71, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ae1ccff81f2d48189412aba64ebb714e", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "bf3d0fa3e7c24848b8689ab453187259", async() => {
                 BeginContext(1721, 16, true);
                 WriteLiteral("Dodaj Pracownika");
                 EndContext();
@@ -357,7 +357,7 @@ using CarRental.Models;
             WriteLiteral("</td>-->\r\n        <td>\r\n            ");
             EndContext();
             BeginContext(2175, 116, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "01946a8f4d324dfab88128769b2d3927", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "3a85c178bcec424e992d1c48c3998941", async() => {
                 BeginContext(2281, 6, true);
                 WriteLiteral("Edytuj");
                 EndContext();
@@ -394,7 +394,7 @@ using CarRental.Models;
             WriteLiteral("\r\n            ");
             EndContext();
             BeginContext(2305, 117, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "74cd673bf2974d22b1a84d8c6b86ab5f", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "51fefc0083424a51b70d921dda60779d", async() => {
                 BeginContext(2414, 4, true);
                 WriteLiteral("Usuń");
                 EndContext();
@@ -453,7 +453,7 @@ using CarRental.Models;
                 ");
             EndContext();
             BeginContext(2772, 75, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "62ad83ae90304865ba37d34e88d002fe", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "a28dcf0cd5b64259a41ec49dd988b2dd", async() => {
                 BeginContext(2823, 20, true);
                 WriteLiteral("Dodaj administratora");
                 EndContext();
@@ -547,7 +547,7 @@ using CarRental.Models;
             WriteLiteral("</td>-->\r\n        <td>\r\n            ");
             EndContext();
             BeginContext(3278, 116, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e0f3912a120f412b832f0fc29f26d6f3", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9dda492912244512818862505333fc8a", async() => {
                 BeginContext(3384, 6, true);
                 WriteLiteral("Edytuj");
                 EndContext();
@@ -584,7 +584,7 @@ using CarRental.Models;
             WriteLiteral("\r\n            ");
             EndContext();
             BeginContext(3408, 117, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "148e91fdae8a488baf837f7d33de6392", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "5debf387a6bb4754b2a36d3098f2e44f", async() => {
                 BeginContext(3517, 4, true);
                 WriteLiteral("Usuń");
                 EndContext();

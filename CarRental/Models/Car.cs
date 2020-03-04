@@ -20,6 +20,6 @@ namespace CarRental.Models
         public string ImageUrl { get; set; }
         public string ThumbnaulUrl { get; set; }
         public string CarStatus { get; set; }
-
+        public bool IsSelected { get; set; }
     }
 }

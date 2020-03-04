@@ -9,5 +9,6 @@ namespace CarRental.Models
     {
         public int AdditionalEquipmentId { get; set; }
         public string Type { get; set; }
+        public bool IsSelected { get; set; }
     }
 }

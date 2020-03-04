@@ -38,7 +38,6 @@
                 <ul class="nav navbar-nav">
                     <li><a asp-area="" asp-controller="Home" asp-action="About"><span style="color: gold;">O firmie</span></a></li>
                     <li><a asp-area="" asp-controller="Home" asp-action="Contact"><span style="color: gold;">Kontakt</span></a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="Contact"><span style="color: gold;">Zamów</span></a></li>
                 </ul>
 
                 @if (SignInManager.IsSignedIn(User))
@@ -60,8 +59,9 @@
                     @if (User.IsInRole("User"))
                     {
                         <ul class="nav navbar-nav">
-                            <li><a asp-area="" asp-controller="Employee" asp-action=""><span style="color: gold;">Wypożyczenie</span></a></li>
                             <li><a asp-area="" asp-controller="Home" asp-action="Account" asp-route-userName="@User.Identity.Name"><span style="color: gold;">Konto</span></a></li>
+                            <li><a asp-area="" asp-controller="User" asp-action="Order" asp-route-userName="@User.Identity.Name"><span style="color: gold;">Zamów</span></a></li>
+                            <li><a asp-area="" asp-controller="User" asp-action="MyOrders" asp-route-userName="@User.Identity.Name"><span style="color: gold;">Moje Zamówienia</span></a></li>
                         </ul>
                     }
                     <form asp-area="" asp-controller="Login" asp-action="Logout" id="logoutForm"

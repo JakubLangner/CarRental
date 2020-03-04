@@ -1,0 +1,38 @@
+﻿@model IEnumerable<CarRental.Models.Rent>
+
+<table class="table" style="background-color:azure">
+    <thead>
+        <tr>
+            <th>Numer Samochodu</th>
+            <th>Opis</th>
+            <th>Faktura</th>
+            <th>Notatka</th>
+            <th>Cena</th>
+            <th>Adres</th>
+            <th>Początek</th>
+            <th>Koniec</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>@Html.DisplayFor(modelItem => item.CarId)</td>
+            <td>@Html.DisplayFor(modelItem => item.Description)</td>
+            <td>@Html.DisplayFor(modelItem => item.IsInvoice)</td>
+            <td>@Html.DisplayFor(modelItem => item.Note)</td>
+            <td>@Html.DisplayFor(modelItem => item.Price)</td>
+            <td>@Html.DisplayFor(modelItem => item.RentAddress)</td>
+            <td>@Html.DisplayFor(modelItem => item.RentStart)</td>
+            <td>@Html.DisplayFor(modelItem => item.RentEnd)</td>
+            <td>@Html.DisplayFor(modelItem => item.RentStatus)</td>
+
+
+
+
+        </tr>
+        }
+    </tbody>
+</table>
+

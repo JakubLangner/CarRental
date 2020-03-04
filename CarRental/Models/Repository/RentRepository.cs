@@ -1,5 +1,6 @@
 ﻿using CarRental.Models.Database;
 using CarRental.Models.Interfaces;
+using CarRental.ViewModels.Order;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -40,6 +41,11 @@ namespace CarRental.Models.Repository
             return _databasecontext.Rents.ToList();
         }
 
+        public  List<Rent>GetMyRents(string userId)
+        {
+            return _databasecontext.Rents.Where(x => x.UserId == userId).ToList();
+        }
+
         public Rent GetRent(int id)
         {
             return _databasecontext.Rents.FirstOrDefault(rent => rent.RentId == id);
@@ -57,8 +63,5 @@ namespace CarRental.Models.Repository
             _databasecontext.SaveChanges();
             
         }
-
-
-        
     }
 }
