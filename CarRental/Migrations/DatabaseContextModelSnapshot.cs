@@ -147,7 +147,7 @@ namespace CarRental.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("AdditionalEquipmentId");
+                    b.Property<int?>("AdditionalEquipmentId");
 
                     b.Property<int>("CarId");
 
@@ -302,8 +302,7 @@ namespace CarRental.Migrations
                 {
                     b.HasOne("CarRental.Models.AdditionalEquipment", "AdditionalEquipment")
                         .WithMany()
-                        .HasForeignKey("AdditionalEquipmentId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("AdditionalEquipmentId");
 
                     b.HasOne("CarRental.Models.Car", "Car")
                         .WithMany()

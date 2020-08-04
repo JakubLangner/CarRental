@@ -14,7 +14,7 @@ namespace CarRental.Models
         public DateTime RentEnd { get; set; }
         public string RentAddress { get; set; }
         public string Description { get; set; }
-        public virtual int AdditionalEquipmentId { get; set; }
+        public virtual int? AdditionalEquipmentId { get; set; }
         public virtual AdditionalEquipment AdditionalEquipment { get; set; }
         public decimal Price { get; set; }
         public bool IsInvoice { get; set; }

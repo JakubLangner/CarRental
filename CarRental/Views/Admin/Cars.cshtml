@@ -1,5 +1,24 @@
 ﻿@model IEnumerable<Car>
 
+@if (TempData["SM"] != null)
+{
+    <div class="alert alert-success">
+        @TempData["SM"]
+    </div>
+}
+@if (TempData["CarError"] != null)
+{
+    <div class="alert alert-danger">
+        @TempData["CarError"]
+    </div>
+}
+@if (TempData["NoCars"] != null)
+{
+    <div class="alert alert-danger">
+        @TempData["NoCars"]
+    </div>
+}
+
 <table class="table" style="background-color:azure">
     <thead>
         <tr>

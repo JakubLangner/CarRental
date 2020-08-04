@@ -46,26 +46,28 @@
                         </label>
                     </div>
                 </div>
+
                 <div class="form-group col-lg-10">
 
-                    <label asp-for="CarId" class="control-label">Wybierz samochód</label><br />
-                    @using (Html.BeginForm())
-                    {
-                        @Html.ListBoxFor(x => x.SelectedCar, Model.Cars)
-
-                    }
                     
-                </div>
-                <div class="form-group col-lg-10">
-                    <label asp-for="AdditionalEquipmentId" class="control-label">Wybierz sprzęt</label><br />
                     @using (Html.BeginForm())
                     {
-                        @Html.ListBoxFor(x => x.SelectedCar, Model.Equipments)
-
+                    <div>
+                        <label asp-for="CarId" class="">Wybierz samochód</label><br />
+                        @Html.ListBoxFor(x => x.SelectedCar, Model.Cars)
+                    </div>
+                    <div>
+                        <label asp-for="AdditionalEquipmentId" class="">Wybierz sprzęt</label><br />
+                        @Html.ListBoxFor(x => x.SelectedEquipment, Model.Equipments)
+                    </div>
                     }
+
                 </div>
+
             </div>
         </div>
+
+
 
         <div class="modal-footer">
             <a asp-action="Index" class="btn btn-danger pull-right" style="margin-top:30px">Powrót</a>
@@ -73,5 +75,5 @@
         </div>
     </div>
 </form>
-@{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+@*@{await Html.RenderPartialAsync("_ValidationScriptsPartial");}*@
 

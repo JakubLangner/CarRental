@@ -7,6 +7,7 @@ using CarRental.Models.Database;
 using CarRental.Models.Interfaces;
 using CarRental.ViewModels;
 using CarRental.ViewModels.Archives;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -15,6 +16,7 @@ using Microsoft.Extensions.Configuration;
 
 namespace CarRental.Controllers
 {
+    [Authorize(Roles = "Employee")]
     public class EmployeeController : Controller
     {
         private readonly ICarRepository _carRepository;
@@ -43,15 +45,6 @@ namespace CarRental.Controllers
         public IActionResult Archives()
         {
             return View(_archivesRepository.GetAll());
-        }
-
-        public DatabaseContext initContext()
-        {
-            DbContextOptionsBuilder<DatabaseContext> options = new DbContextOptionsBuilder<DatabaseContext>();
-            options.UseSqlServer(_configuration.GetConnectionString("DefaultConnection"));
-            var context = new DatabaseContext(options.Options);
-
-            return context;
         }
 
         [HttpGet]

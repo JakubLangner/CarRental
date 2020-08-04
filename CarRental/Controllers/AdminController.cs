@@ -49,7 +49,13 @@ namespace CarRental.Controllers
         [HttpGet]
         public IActionResult Cars()
         {
-            return View(_carRepository.GetAll());
+            var cars = _carRepository.GetAll();
+            if (cars.Count == 0)
+            {
+                TempData["NoCars"] = "Brak dodanego samochodu. Dodaj samochód";
+                return View(cars);
+            }
+            return View(cars);
         }
 
         public IActionResult DetailsCar(int id)
@@ -78,8 +84,10 @@ namespace CarRental.Controllers
             if (ModelState.IsValid)
             {
                 _carRepository.AddCar(car);
+                TempData["SM"] = "Dodałeś samochod";
                 return RedirectToAction(nameof(Cars));
             }
+            TempData["CarError"] = "Nie udało dodać się auta";
             return View(car);
         }
 
@@ -159,7 +167,13 @@ namespace CarRental.Controllers
         [HttpGet]
         public IActionResult Equipments()
         {
-            return View(_additionalEquipmentRepository.GetAll());
+            var eq = _additionalEquipmentRepository.GetAll();
+            if (eq.Count == 0)
+            {
+                TempData["NoEqu"] = "Brak dodanego sprzętu. Dodaj sprzęt";
+                return View(eq);
+            }
+            return View(eq);
         }
         [HttpGet]
         public IActionResult CreateEquipment()
@@ -174,6 +188,7 @@ namespace CarRental.Controllers
             if (ModelState.IsValid)
             {
                 _additionalEquipmentRepository.AddEquipment(equipment);
+                TempData["AddEq"] = "Dodałeś sprzęt";
                 return RedirectToAction(nameof(Equipments));
             }
             return View(equipment);
@@ -220,7 +235,7 @@ namespace CarRental.Controllers
             return RedirectToAction(nameof(Equipments));
         }
 
-        public DatabaseContext initContext()
+        public DatabaseContext DatabaseInitialization()
         {
             DbContextOptionsBuilder<DatabaseContext> options = new DbContextOptionsBuilder<DatabaseContext>();
             options.UseSqlServer(_configuration.GetConnectionString("DefaultConnection"));
@@ -232,7 +247,7 @@ namespace CarRental.Controllers
         [HttpGet]
         public IActionResult Users()
         {
-            DatabaseContext context = this.initContext();
+            DatabaseContext context = this.DatabaseInitialization();
             var userRoles = new List<AdminUsersView>();
             var userStore = new UserStore<AppUser>(context);
 
@@ -262,7 +277,7 @@ namespace CarRental.Controllers
 
             return View(userRoles);
         }
-
+        [HttpGet]
         public IActionResult CreateUser()
         {
             var userEdit = new AdminUsersView();
@@ -273,7 +288,7 @@ namespace CarRental.Controllers
                 new SelectListItem {Text = "Pracownik", Value = "Employee"}
             };
 
-            return PartialView("CreateUser", userEdit);
+            return View("CreateUser", userEdit);
         }
         [HttpPost]
         public async Task<IActionResult> CreateUser(AdminUsersView model)
@@ -287,11 +302,14 @@ namespace CarRental.Controllers
                     newUser = new AppUser();
                     newUser.UserName = model.UserName;
                     newUser.PhoneNumber = model.PhoneNumber;
+
                     newUser.Email = model.Email;
+
                     newUser.FirstName = model.FirstName;
                     newUser.LastName = model.LastName;
 
                     var resultCreate = await _userManager.CreateAsync(newUser, model.Password);
+                    TempData["AddUser"] = "Dodałeś użytkownika";
                     if (resultCreate.Succeeded)
                     {
                         var roleManager = _provider.GetRequiredService<RoleManager<IdentityRole>>();

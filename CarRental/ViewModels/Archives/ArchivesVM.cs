@@ -12,7 +12,7 @@ namespace CarRental.ViewModels.Archives
         public int CarId { get; set; }
         public string RentAddress { get; set; }
         public string Description { get; set; }
-        public virtual int AdditionalEquipmentId { get; set; }
+        public virtual int? AdditionalEquipmentId { get; set; }
         public decimal Price { get; set; }
         public string IsInvoice { get; set; }
         public string Note { get; set; }

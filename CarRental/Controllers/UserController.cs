@@ -6,6 +6,7 @@ using CarRental.Models;
 using CarRental.Models.Database;
 using CarRental.Models.Interfaces;
 using CarRental.ViewModels.Order;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -14,6 +15,7 @@ using Microsoft.Extensions.Configuration;
 
 namespace CarRental.Controllers
 {
+    [Authorize(Roles = "User")]
     public class UserController : Controller
     {
         private readonly IConfiguration _configuration;
@@ -26,7 +28,7 @@ namespace CarRental.Controllers
             _rentRepository = rentRepository;
         }
 
-        public DatabaseContext initContext()
+        public DatabaseContext DatabaseInitialization()
         {
             DbContextOptionsBuilder<DatabaseContext> options = new DbContextOptionsBuilder<DatabaseContext>();
             options.UseSqlServer(_configuration.GetConnectionString("DefaultConnection"));
@@ -40,7 +42,7 @@ namespace CarRental.Controllers
         {
             var User = await _userManager.FindByNameAsync(username);
 
-            DatabaseContext context = this.initContext();
+            DatabaseContext context = this.DatabaseInitialization();
 
             List<SelectListItem> listSelectListItemCars = new List<SelectListItem>();
             
@@ -70,11 +72,11 @@ namespace CarRental.Controllers
             RentVM model = new RentVM();
             model.Cars = listSelectListItemCars;
             model.Equipments = listSelectListItemEquipment;
-            model.RentStart = DateTime.Today;
+            model.RentStart = DateTime.Now;
             model.RentEnd = DateTime.Now.AddDays(1);
             model.Price = 100 * model.RentEnd.Day;
             model.UserName = User.UserName;
-            return PartialView("Order", model);
+            return View("Order", model);
         }
 
         [HttpPost]
@@ -100,11 +102,11 @@ namespace CarRental.Controllers
             rent.RentStatus = "Oczekujące";
             if (model.SelectedEquipment == null)
             {
-                rent.AdditionalEquipmentId = 1;
+                //rent.AdditionalEquipmentId = 1;
             }
             else
             {
-                rent.AdditionalEquipmentId = int.Parse(model.SelectedEquipment.Last());
+                rent.AdditionalEquipmentId = model.SelectedEquipment.Last();
             }
             
             _rentRepository.AddRent(rent);

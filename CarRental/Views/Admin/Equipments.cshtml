@@ -1,6 +1,19 @@
 ﻿@model IEnumerable<AdditionalEquipment>
 
+@if (TempData["NoEqu"] != null)
+{
+    <div class="alert alert-danger">
+        @TempData["NoEqu"]
+    </div>
+}
+@if (TempData["AddEq"] != null)
+{
+    <div class="alert alert-success">
+        @TempData["AddEq"]
+    </div>
+}
 <table class="table" style="background-color:azure">
+
     <thead>
         <tr>
             <th>Id</th>

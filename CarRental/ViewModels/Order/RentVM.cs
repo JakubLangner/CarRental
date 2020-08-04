@@ -13,7 +13,7 @@ namespace CarRental.ViewModels.Order
         public IEnumerable<string> SelectedCar { get; set; }
 
         public IEnumerable<SelectListItem> Equipments { get; set; }
-        public IEnumerable<string> SelectedEquipment { get; set; }
+        public IEnumerable<int> SelectedEquipment { get; set; }
 
         public int RentId { get; set; }
         [Required]

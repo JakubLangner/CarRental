@@ -13,7 +13,6 @@ namespace CarRental.Controllers
     {
         private readonly SignInManager<AppUser> _signInManager;
         private readonly UserManager<AppUser> _userManager;
-
         public LoginController(SignInManager<AppUser> signInManager, UserManager<AppUser> userManager)
         {
             _signInManager = signInManager;
@@ -44,11 +43,16 @@ namespace CarRental.Controllers
                 {
                     return RedirectToAction("Index", "Home");
                 }
+                else
+                {
+                    TempData["LoginError"] = "Nazwa użytkownika lub hasło są nieprawidłowe";
+                    return View(model);
+                }
 
             }
 
-            ModelState.AddModelError("", "Nazwa użytkownika lub hasło są nie prawidłowe");
-
+            
+            
             return View(model);
         }
 
@@ -65,6 +69,7 @@ namespace CarRental.Controllers
             {
                 var user = new AppUser() { UserName = model.UserName };
                 var result = await _userManager.CreateAsync(user, model.Password);
+
 
                 if (result.Succeeded)
                 {

@@ -31,14 +31,14 @@ namespace CarRental.Controllers
 
         public IActionResult About()
         {
-            ViewData["Message"] = "Your application description page.";
+            ViewData["Message"] = "Opis firmy";
 
             return View();
         }
 
         public IActionResult Contact()
         {
-            ViewData["Message"] = "Your contact page.";
+            ViewData["Message"] = "Strona kontaktowa";
 
             return View();
         }
@@ -88,7 +88,22 @@ namespace CarRental.Controllers
             
 
             AppUser editUser = _userManager.FindByNameAsync(model.UserName).Result;
-            editUser.Email = model.Email;
+            try
+            {
+                var addr = new System.Net.Mail.MailAddress(model.Email);
+                editUser.Email = model.Email;
+            }
+            catch
+            {
+                
+                return View(model);
+            }
+            if (string.IsNullOrWhiteSpace(model.FirstName))
+            {
+                
+                   TempData["AccountError"] = "To pole jest wymagane. Proszę uzupełnić imię";
+                return View(model);
+            }
             editUser.PhoneNumber = model.PhoneNumber;
             editUser.FirstName = model.FirstName;
             editUser.LastName = model.LastName;

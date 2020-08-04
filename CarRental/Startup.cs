@@ -20,6 +20,7 @@ namespace CarRental
 {
     public class Startup
     {
+       
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -45,9 +46,9 @@ namespace CarRental
                 options.Password.RequireDigit = false;
                 options.Password.RequireLowercase = false;
                 options.Password.RequireNonAlphanumeric = false;
-                options.Password.RequireUppercase = false;
-                options.Password.RequiredLength = 4;
-                options.Password.RequiredUniqueChars = 0;
+                options.Password.RequireUppercase = true;
+                options.Password.RequiredLength = 8;
+                options.Password.RequiredUniqueChars = 1;
             });
             services.AddScoped<IAdditionalEquipmentRepository, AdditionalEquipmentRepository>();
             services.AddScoped<IArchivesRepository, ArchivesRepository>();
@@ -84,10 +85,20 @@ namespace CarRental
                 roleResult = await RoleManager.CreateAsync(new IdentityRole("Employee"));
             }
 
-            // Assign Admin role to newly registered user
-            AppUser user = await UserManager.FindByNameAsync("Admin");
-            var User = new AppUser();
-            await UserManager.AddToRoleAsync(user, "Admin");
+            AppUser AdminUser = await UserManager.FindByNameAsync("Admin");
+            if (AdminUser == null)
+            {
+                var User = new AppUser();
+                User.UserName = "Admin";
+                await UserManager.CreateAsync(User, "Warszawa123.!");
+                await UserManager.AddToRoleAsync(User, "Admin");
+
+            }
+
+           // //Assign Admin role to newly registered user
+           //AppUser user = await UserManager.FindByNameAsync("Admin");
+           // var User = new AppUser();
+           // await UserManager.AddToRoleAsync(user, "Admin");
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
